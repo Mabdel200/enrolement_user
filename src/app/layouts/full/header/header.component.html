@@ -1,0 +1,17 @@
+
+<!-- ============================================================== -->
+<!-- Profile - style you can find in header.scss -->
+<!-- ============================================================== -->
+<!--<a href="" class=" m-r-20 hidden-sm-up" mat-raised-button color="warn"> </a>-->
+<button [matMenuTriggerFor]="profile" style="margin-left:-50%" mat-icon-button class="p-0 d-flex jc-c align-items-center"> <img src="assets/images/users/1.png" alt="user" class="profile-pic"> </button>
+<mat-menu #profile="matMenu" class="mymegamenu">
+    <button mat-menu-item>
+        <mat-icon>settings</mat-icon> Paramètre </button>
+    <button mat-menu-item>
+        <mat-icon>account_box</mat-icon> Profil </button>
+    <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon> Notifications </button>
+    <button mat-menu-item routerLink="/login">
+        <mat-icon>exit_to_app</mat-icon> Deconnexion </button>
+</mat-menu>
+

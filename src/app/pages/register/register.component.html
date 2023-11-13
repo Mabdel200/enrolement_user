@@ -1,0 +1,99 @@
+<h2 class="text-center mt-4">Portail-Shop</h2>
+<div class="container" *ngIf="!authResponse.mfaEnabled">
+  <div class="success-message-panel" *ngIf="message">
+    <div class="success-icon">&#10004;</div>
+    <div class="success-message">{{message}}</div>
+  </div>
+
+  <h2 class="text-center">S'enrégistrer</h2>
+  <p class="text-center ">Les champs avec <span class="text-danger">*</span> sont requis.</p>
+  <hr>
+  <form (ngSubmit)="registerUser()">
+    <div class="form-group">
+      <label for="firstname">Nom <span class="text-danger">(*)</span></label>
+      <input
+        id="firstname"
+        name="firstname"
+        required type="text"
+        [(ngModel)]="registerRequest.firstname"
+      >
+    </div>
+    <div class="form-group">
+      <label for="lastname">Prénom <span class="text-danger">(*)</span></label>
+      <input
+        id="lastname"
+        name="lastname"
+        required type="text"
+        [(ngModel)]="registerRequest.lastname"
+      >
+    </div>
+    <div class="form-group">
+      <label for="email">Adresse mail <span class="text-danger">(*)</span></label>
+      <input
+        id="email"
+        name="email"
+        required type="text"
+        [(ngModel)]="registerRequest.email"
+      >
+    </div>
+    <div class="form-group">
+      <label for="password">Mot de passe <span class="text-danger">(*)</span></label>
+      <input
+        id="password"
+        name="password"
+        required type="password"
+        [(ngModel)]="registerRequest.password"
+      >
+    </div>
+    <div class="row">
+
+
+
+        <div class="col-10">
+          <label for="rememberMe">Voulez-vous utiliser <span class="text-success"> une double authentification ? (2FA)</span> </label>
+
+        </div>
+        <div class="col-2">
+          <input
+            id="rememberMe"
+            name="rememberMe"
+            type="checkbox"
+            [(ngModel)]="registerRequest.mfaEnabled"
+          >
+
+      </div>
+    </div>
+    <button type="submit">S'enregistrer</button>
+
+    <p class="mt-4">Vous avez deja un compte ? <a class="text-decoration-none text-primary " routerLink="/login">Se connecter</a></p>
+
+  </form>
+</div>
+
+<div class="container" *ngIf="authResponse.mfaEnabled">
+
+  <div class="success-message-panel" *ngIf="message">
+    <div class="success-icon">&#10004;</div>
+    <div class="success-message">{{message}}</div>
+  </div>
+
+  <h3>Scanner le code QR ci dessous.</h3>
+  <div class="qr-code">
+    <img [src]="authResponse.secretImageUri" alt="QR Code">
+  </div>
+  <div class="form-group">
+    <label for="validationCode">Entrer le code à 06 caractères générer par authenticator</label>
+    <input
+      type="text"
+      id="validationCode"
+      name="validationCode"
+      required
+      [(ngModel)]="otpCode"
+    >
+  </div>
+  <button
+    type="button"
+    (click)="verifyTfa()"
+    [class.button-disabled]="otpCode.length < 6"
+  >Verifier le code</button>
+</div>

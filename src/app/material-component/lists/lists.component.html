@@ -1,0 +1,85 @@
+<!-- ============================================================== -->
+<!-- row -->
+<!-- ============================================================== -->
+
+<!--<div class="row">-->
+<!--  <p class="text-center col-4">-->
+<!--    <a  href="/add-user-form">-->
+<!--      <button mat-fab extended color="accent" >-->
+<!--        <mat-icon>plus_one</mat-icon>-->
+<!--        Ajouter un utilisateur-->
+<!--      </button>-->
+<!--    </a>-->
+<!--  </p>-->
+<!--</div>-->
+
+
+
+<div class="row">
+  <!-- Card column -->
+  <div class="col-12">
+
+    <!--    List of users-->
+
+    <mat-card>
+      <mat-card-content>
+        <mat-card-title>Liste des pre-enrolement</mat-card-title>
+        <mat-card-subtitle> Tableau récapitulatif des informations utilisateurs et des privilèges associés.</mat-card-subtitle>
+      </mat-card-content>
+
+
+      <table class="mat-elevation-z8 table  table-striped" >
+        <!-- Position Column -->
+        <thead>
+        <tr>
+          <th>#.</th>
+          <th>Nom et Prenom.</th>
+          <th>Email.</th>
+          <th>Date Naiss.</th>
+          <th>Lieu Naiss.</th>
+          <th>Telephone.</th>
+          <th>Region.</th>
+          <th>Pre-enrolé ?.</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  *ngFor="let user of users">
+          <td> <i class="fa fa-user"></i></td>
+          <td>{{user.firstname}} {{user.lastname}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.dateNaiss}}</td>
+          <td>{{user.lieuNaiss}}</td>
+          <td>{{user.numTel}}</td>
+          <td>{{user.regionOrigine}}</td>
+          <td class="text-success"><b>Oui</b></td>
+          <td>
+            <button class="btn btn-danger">Bloquer</button></td>
+        </tr>
+        </tbody>
+        <!-- Name Column -->
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                     showFirstLastButtons
+                     aria-label="Select page of periodic elements">
+      </mat-paginator>
+
+    </mat-card>
+    <!--    End of Table-->
+
+    <mat-card style="color:white;">
+      <mat-card-content style="color:white;">
+        <mat-card-title>Customizing menu position </mat-card-title>
+        <mat-card-subtitle style="color:white;">By default, the menu will display below (y-axis), after (x-axis), without overlapping its trigger. The position can be changed using the xPosition (before | after) and yPosition (above | below) attributes. The menu can be forced to overlap the trigger using the overlapTrigger attribute.
+        </mat-card-subtitle>
+        <mat-menu style="color:white;" #appMenu="matMenu" yPosition="above">
+          <button mat-menu-item>Settings</button>
+          <button mat-menu-item>Help</button>
+        </mat-menu>
+
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
