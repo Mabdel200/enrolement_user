@@ -45,10 +45,18 @@
         [(ngModel)]="registerRequest.password"
       >
     </div>
+    <div class="form-group">
+      <label for="password">Role <span class="text-danger">(*)</span></label>
+      <select  name="role" required class="form-control" id=""
+               [(ngModel)]="registerRequest.role"
+      >
+
+        <option value="USER">Revendeur</option>
+        <option value="ADMIN">Responsable clientèle</option>
+      </select>
+    </div>
+
     <div class="row">
-
-
-
         <div class="col-10">
           <label for="rememberMe">Voulez-vous utiliser <span class="text-success"> une double authentification ? (2FA)</span> </label>
 

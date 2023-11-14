@@ -23,7 +23,7 @@
 
     <mat-card>
       <mat-card-content>
-        <mat-card-title>Liste des pre-enrolement</mat-card-title>
+        <mat-card-title>Liste des pré-enrolements</mat-card-title>
         <mat-card-subtitle> Tableau récapitulatif des informations utilisateurs et des privilèges associés.</mat-card-subtitle>
       </mat-card-content>
 
@@ -32,26 +32,26 @@
         <!-- Position Column -->
         <thead>
         <tr>
-          <th>#.</th>
-          <th>Nom et Prenom.</th>
+          <th>i.</th>
+          <th>Nom & Prenom.</th>
           <th>Email.</th>
           <th>Date Naiss.</th>
           <th>Lieu Naiss.</th>
           <th>Telephone.</th>
           <th>Region.</th>
-          <th>Pre-enrolé ?.</th>
+          <th>Enrolé ?.</th>
           <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr  *ngFor="let user of users">
-          <td> <i class="fa fa-user"></i></td>
-          <td>{{user.firstname}} {{user.lastname}}</td>
-          <td>{{user.email}}</td>
-          <td>{{user.dateNaiss}}</td>
-          <td>{{user.lieuNaiss}}</td>
-          <td>{{user.numTel}}</td>
-          <td>{{user.regionOrigine}}</td>
+        <tr  *ngFor="let customer of customers">
+          <td> <i class="fa fa-user text-info"></i></td>
+          <td>{{customer.firstname}} {{customer.lastname}}</td>
+          <td>{{customer.email}}</td>
+          <td>{{customer.dateNaiss}}</td>
+          <td>{{customer.lieuNaiss}}</td>
+          <td>{{customer.numTel}}</td>
+          <td>{{customer.regionOrigine}}</td>
           <td class="text-success"><b>Oui</b></td>
           <td>
             <button class="btn btn-danger">Bloquer</button></td>

@@ -17,6 +17,7 @@ import {ThemePalette} from "@angular/material/core";
 
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {CustomerService} from "../../serives/customer/customer.service";
 
 @Component({
   selector: 'app-lists',
@@ -27,15 +28,15 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 
 })
 export class ListsComponent implements OnInit {
-  public users: any
+  public customers: any
   //=========== begin ==============================
   constructor(
-    private authService: AuthenticationService, private router: Router) {}
+    private customerService: CustomerService, private router: Router) {}
 
   ngOnInit(): void {
-    this.authService.getUsers().subscribe( (datas) =>{
+    this.customerService.getCustomers().subscribe( (datas) =>{
       console.log(datas);
-      this.users =datas;
+      this.customers =datas;
     })
   }
 

@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import {RegisterRequest} from "../../models/register-request";
-import {AuthenticationResponse} from "../../models/authentication-response";
-import {AuthenticationService} from "../../serives/authentication.service";
 import {Router} from "@angular/router";
+import {CustomerService} from "../../serives/customer/customer.service";
+import {CustomerRequest} from "../../models/customer-request";
 
 @Component({
   selector: 'app-pre-enrollement',
@@ -10,31 +9,26 @@ import {Router} from "@angular/router";
   styleUrls: ['./pre-enrollement.component.scss']
 })
 export class PreEnrollementComponent {
-  registerRequest: RegisterRequest = {};
-  authResponse: AuthenticationResponse = {};
+  customerRequest: CustomerRequest = {};
   message = '';
-  otpCode = '';
 
   constructor(
-    private authService: AuthenticationService,
+    private customerService: CustomerService,
     private router: Router
   ) {
   }
 
-  registerUser() {
+  registerCustomer() {
     this.message = '';
-    this.authService.register(this.registerRequest)
+    this.customerService.registerCustomer(this.customerRequest)
       .subscribe({
         next: (response) => {
-          if (response) {
-            this.authResponse = response;
-          } else {
+
             // inform the user
-            this.message = 'Vous avez ete pre-enrole avec succes.\n';
+            this.message = 'Vous avez été pré-enrole avec succes.\n';
             // setTimeout(() => {
             //   // this.router.navigate(['login']);
             // }, 3000)
-          }
         }
       });
 

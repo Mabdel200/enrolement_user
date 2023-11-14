@@ -11,8 +11,8 @@ const MENUITEMS = [
   { state: 'dashboard', name: 'Tableau de bord', type: 'link', icon: 'av_timer' },
   // { state: 'button', type: 'link', name: 'Gérer utilisateurs', icon: 'crop_7_5' },
   // { state: 'grid', type: 'link', name: 'Grid List', icon: 'view_comfy' },
-  { state: 'toolbar', type: 'link', name: 'Gestion des enrollements', icon: 'developer_mode' },
- 
+  { state: 'lists', type: 'link', name: 'Gérer enrolements', icon: 'view_comfy' },
+
   // {
   //   state: 'expansion',
   //   type: 'link',

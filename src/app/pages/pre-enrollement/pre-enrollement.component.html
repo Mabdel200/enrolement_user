@@ -3,7 +3,7 @@
   <h2 class="text-center"> Bienvenue sur la page de pré-enrolement</h2>
   <div class="row">
     <div class="container justify-content-center ">
-      <div class="success-message-panel" *ngIf="message">
+      <div class="success-message-panel bg-success text-center text-white font-weight-bold" *ngIf="message">
         <div class="success-icon">&#10004;</div>
         <div class="success-message">{{message}}</div>
       </div>
@@ -12,14 +12,14 @@
       <hr>
       <!--        form wizard multi steps made by abdel -->
       <!--      end form-->
-      <form (ngSubmit)="registerUser()">
+      <form (ngSubmit)="registerCustomer()">
         <div class="form-group">
           <label>Nom <span class="text-danger">(*)</span></label>
           <input
             id="firstname"
             name="firstname"
             required type="text"
-            [(ngModel)]="registerRequest.firstname"
+            [(ngModel)]="customerRequest.firstname"
           >
         </div>
         <div class="form-group">
@@ -27,47 +27,47 @@
           <input id="lastname"
                  name="lastname"
                  required type="text"
-                 [(ngModel)]="registerRequest.lastname">
+                 [(ngModel)]="customerRequest.lastname">
         </div>
         <div class="form-group">
           <label >Date Naissance <span class="text-danger">(*)</span></label>
           <input   id="date"
                    name="dateNaiss"
                    required type="date"
-                   [(ngModel)]="registerRequest.dateNaiss">
+                   [(ngModel)]="customerRequest.dateNaiss">
         </div>
         <div class="form-group">
           <label >Lieu Naissance <span class="text-danger">(*)</span></label>
           <input  name="lieuNaiss"
                   required type="text"
-                  [(ngModel)]="registerRequest.lieuNaiss">
+                  [(ngModel)]="customerRequest.lieuNaiss">
         </div>
         <div class="form-group">
           <label >Numéros de telephone <span class="text-danger">(*)</span></label>
           <input  name="numTel"
                   required type="number"
-                  [(ngModel)]="registerRequest.numTel">
+                  [(ngModel)]="customerRequest.numTel">
         </div>
         <div class="form-group">
           <label >Adresse mail <span class="text-danger">(*)</span></label>
           <input   id="email"
                    name="email"
                    required type="text"
-                   [(ngModel)]="registerRequest.email">
+                   [(ngModel)]="customerRequest.email">
         </div>
 
         <div class="form-group">
           <label >Lieu de residence <span class="text-danger">(*)</span></label>
           <input  name="lieuResidence"
                   required type="text"
-                  [(ngModel)]="registerRequest.lieuResidence">
+                  [(ngModel)]="customerRequest.lieuResidence">
         </div>
 
         <div class="form-group">
           <label >Region d' origine <span class="text-danger">(*)</span></label>
           <select id="region"
-                  required type="text"
-                  [(ngModel)]="registerRequest.regionOrigine"
+                  required
+                  [(ngModel)]="customerRequest.regionOrigine"
                   class="form-control">
             <option selected name="adamaoua">Adamaoua</option>
             <option name="centre">Centre</option>
@@ -85,13 +85,13 @@
           <label >Nom tuteur <span class="text-danger">(*)</span></label>
           <input  required type="text"
                   name="nomTuteur"
-                  [(ngModel)]="registerRequest.nomTuteur">
+                  [(ngModel)]="customerRequest.nomTuteur">
         </div>
         <div class="form-group">
           <label >Numéros tuteur<span class="text-danger">(*)</span></label>
           <input  required type="number"
                   name="numTuteur"
-                  [(ngModel)]="registerRequest.numTuteur">
+                  [(ngModel)]="customerRequest.numTuteur">
         </div>
 
         <button type="submit">enregistrer</button>
