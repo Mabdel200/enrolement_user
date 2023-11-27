@@ -6,7 +6,14 @@ import {LoginComponent} from "./pages/login/login.component";
 import { PreEnrollementComponent } from './pages/pre-enrollement/pre-enrollement.component';
 import {RegisterComponent} from "./pages/register/register.component";
 import {WelcomeComponent} from "./pages/welcome/welcome.component";
-//import {authGuard} from "./serives/auth/auth.guard";
+import {authGuard} from "./serives/auth/auth.guard";
+// Fr customer
+import { FullCustomerComponent } from './pages/customer/full-customer.component';
+import { CustomerComponent } from './pages/customer/customer.component';
+
+// Rev
+
+
 
 export const AppRoutes: Routes = [
   {
@@ -26,15 +33,11 @@ export const AppRoutes: Routes = [
     component: WelcomeComponent,
     //canActivate: [authGuard]
   },
-  {
-    path: 'Dashboard',
-    component: DashboardComponent,
-  },
-
+   
   {
     path: '',
     component: FullComponent,
-    //canActivate: [authGuard],
+    // canActivate: [authGuard],
     children: [
       {
         path: '',
@@ -51,5 +54,36 @@ export const AppRoutes: Routes = [
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
       }
     ]
-  }
+  },
+
+   // Route for Customers
+   {
+    path: '',
+    component: FullCustomerComponent,
+    children: [
+
+      {
+        path: 'customer',
+        component: CustomerComponent,
+      },
+      {
+        path: '',
+        redirectTo: '/dashboardAdmin',
+        pathMatch: 'full'
+      },
+      {
+        path: '',
+        loadChildren:
+          () => import('./material-component/material.module').then(m => m.MaterialComponentsModule)
+      },
+      {
+        path: 'dashboardAdmin',
+        loadChildren: () => import('./pages/customer/dashboard/dashboard.module').then(m => m.DashboardModule)
+      }
+    ]
+  },
+  
+ 
+
+
 ];

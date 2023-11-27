@@ -1,37 +1,83 @@
-<!-- ============================================================== -->
-<!-- Fixed height Card Grid-->
-<!-- ============================================================== -->
-<div fxLayout="row">
-    <div fxFlex.gt-sm="100%" >
-        <mat-card>
-            <mat-card-content>
-              <mat-card-title>Fixed height grid-list</mat-card-title>
-                <mat-card-subtitle><code>&lt;mat-grid-list&gt;</code> is a two-dimensional list view that arranges cells into grid-based layout. See Material Design spec. <code><a href="https://material.io/guidelines/components/grid-lists.html">Official Doc here</a></code></mat-card-subtitle>
-              <mat-grid-list cols="4" rowHeight="100px">
-                  <mat-grid-tile
-                      *ngFor="let tile of tiles"
-                      [colspan]="tile.cols"
-                      [rowspan]="tile.rows"
-                      [style.background]="tile.color">
-                    {{tile.text}}
-                  </mat-grid-tile>
-                </mat-grid-list>  
-            </mat-card-content>        
-        </mat-card>
-    </div>
-</div>    
-<!-- ============================================================== -->
-<!-- Basic Card Grid-->
-<!-- ============================================================== -->
-<mat-card>
-    <mat-card-content>
-      <mat-card-title>Basic grid-list</mat-card-title>
-      <mat-card-subtitle><code>&lt;mat-grid-list&gt;</code> is a two-dimensional list view that arranges cells into grid-based layout. See Material Design spec. <a href="https://material.io/guidelines/components/grid-lists.html">here</a></mat-card-subtitle>
-      <mat-grid-list cols="2" rowHeight="2:1">
-        <mat-grid-tile>1</mat-grid-tile>
-        <mat-grid-tile>2</mat-grid-tile>
-        <mat-grid-tile>3</mat-grid-tile>
-        <mat-grid-tile>4</mat-grid-tile>
-      </mat-grid-list>  
-    </mat-card-content>        
-</mat-card>
+<div class="row">
+  <p class="text-center col-4">
+    <a  href="/add-payment-form">
+      <button mat-fab extended color="accent" >
+        <mat-icon>plus_one</mat-icon>
+        Enrégistrer un paiement
+      </button>
+    </a>
+  </p>
+</div>
+
+
+<div class="row">
+  <!-- Card column -->
+  <div class="col-12">
+    <!--    Form to add new user-->
+    <!--End Verification-->
+    <!--    List of users-->
+
+    <mat-card>
+      <mat-card-content>
+        <mat-card-title>Liste des paiements</mat-card-title>
+        <mat-card-subtitle> Tableau récapitulatif des paiements enrégistrés.</mat-card-subtitle>
+      </mat-card-content>
+
+
+      <table class="mat-elevation-z8 table  table-striped" >
+        <!-- Position Column -->
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Montant.</th>
+          <th>Motif du paiement.</th>
+          <th>Date de paiement.</th>
+          <th>Nom client.</th>
+          <th>Nom caissier.</th>
+          <th>Actions.</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr  *ngFor="let payment of payments">
+
+         <td><i class="text-info fas fa-cart-plus fa-2x"></i></td>
+         <td  class="text-danger">{{payment.montant}}  XAF</td>
+         <td class="text-success">{{payment.motif}} </td>
+         <td>{{payment.dateDePaiement}} </td>
+         <td>{{payment.customer.firstname}}</td>
+         <td>{{payment.user.firstname}}</td>
+
+          <td>
+            <button class="btn btn-danger" title="Etes vous sure de vouloir annuler ?">
+               <i class="fas fa-trash"></i> Annuler
+            </button>
+          </td>
+        </tr>
+        </tbody>
+        <!-- Name Column -->
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                     showFirstLastButtons
+                     aria-label="Select page of periodic elements">
+      </mat-paginator>
+
+    </mat-card>
+    <!--    End of Table-->
+
+    <mat-card style="color:white;">
+      <mat-card-content style="color:white;">
+        <mat-card-title>Customizing menu position </mat-card-title>
+        <mat-card-subtitle style="color:white;">By default, the menu will display below (y-axis), after (x-axis), without overlapping its trigger. The position can be changed using the xPosition (before | after) and yPosition (above | below) attributes. The menu can be forced to overlap the trigger using the overlapTrigger attribute.
+        </mat-card-subtitle>
+        <mat-menu style="color:white;" #appMenu="matMenu" yPosition="above">
+          <button mat-menu-item>Settings</button>
+          <button mat-menu-item>Help</button>
+        </mat-menu>
+
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

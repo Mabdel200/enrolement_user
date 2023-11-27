@@ -27,10 +27,24 @@ export class LoginComponent implements OnInit  {
       .subscribe({
         next: (response) => {
           this.authResponse = response;
-          if (!this.authResponse.mfaEnabled) {
+          //Route for admin
+          if (!this.authResponse.mfaEnabled && this.authResponse.role == "ADMIN" ) {
+            // Set data in the localStorage orUse sessionStorage.setItem("key", "value"); 
             localStorage.setItem('token', response.accessToken as string);
+            localStorage.setItem('idUser', response.id as string);
+            localStorage.setItem('role', response.role as string);
+              
             this.router.navigate(['dashboard']);
+          } 
+          // Route  for super admin
+          if (!this.authResponse.mfaEnabled && this.authResponse.role == "USER" ) {
+            localStorage.setItem('token', response.accessToken as string);
+            localStorage.setItem('idUser', response.id as string);
+            localStorage.setItem('role', response.role as string);
+
+            this.router.navigate(['dashboardAdmin']);
           }
+
         }
       });
   }

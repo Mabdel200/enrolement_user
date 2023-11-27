@@ -30,6 +30,7 @@ import { TooltipComponent } from './tooltip/tooltip.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
 import { SliderComponent } from './slider/slider.component';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
+import { AddPaymentFormComponent } from './forms/add-payment-form/add-payment-form.component';
 
 @NgModule({
   imports: [
@@ -59,5 +60,8 @@ import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
     SlideToggleComponent
   ],
   providers: [],
+  declarations: [
+    AddPaymentFormComponent
+  ],
 })
 export class MaterialComponentsModule {}

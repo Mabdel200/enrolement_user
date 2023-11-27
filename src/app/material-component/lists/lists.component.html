@@ -38,8 +38,8 @@
           <th>Date Naiss.</th>
           <th>Lieu Naiss.</th>
           <th>Telephone.</th>
-          <th>Region.</th>
-          <th>Enrolé ?.</th>
+          <!-- <th>Montant Payé.</th> -->
+          <th>Statut .</th>
           <th>Actions</th>
         </tr>
         </thead>
@@ -50,11 +50,14 @@
           <td>{{customer.email}}</td>
           <td>{{customer.dateNaiss}}</td>
           <td>{{customer.lieuNaiss}}</td>
-          <td>{{customer.numTel}}</td>
-          <td>{{customer.regionOrigine}}</td>
-          <td class="text-success"><b>Oui</b></td>
+          <td >{{customer.numTel}}</td>
+          <!-- <td class="text-danger">0 XAF</td> -->
+          <td class="text-success"><b>Actif</b></td>
           <td>
-            <button class="btn btn-danger">Bloquer</button></td>
+            <button class="btn btn-info">
+               <i class="fas fa-lock"></i>   Bloquer
+            </button>
+            </td>
         </tr>
         </tbody>
         <!-- Name Column -->

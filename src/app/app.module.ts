@@ -20,13 +20,18 @@ import { SpinnerComponent } from './shared/spinner.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
-//Revendeur
-
+//Admin Panel
+import { CustomerComponent } from './pages/customer/customer.component';
+import { HeaderCustomerComponent } from './pages/customer/header-customer/header-customer.component';
+import { SidebarCustomerComponent } from './pages/customer/sidebar-customer/sidebar-customer.component';
+import { FullCustomerComponent } from './pages/customer/full-customer.component';
+// User
 import { PreEnrollementComponent } from './pages/pre-enrollement/pre-enrollement.component';
-
 
 @NgModule({
   declarations: [
+   
+    SpinnerComponent,
     AppComponent,
     FullComponent,
     AppHeaderComponent,
@@ -35,8 +40,12 @@ import { PreEnrollementComponent } from './pages/pre-enrollement/pre-enrollement
     LoginComponent,
     RegisterComponent,
     WelcomeComponent,
-    PreEnrollementComponent
-    
+    PreEnrollementComponent,
+    // For Admin Panel
+    CustomerComponent,
+    HeaderCustomerComponent,
+    SidebarCustomerComponent,
+    FullCustomerComponent,
 
   ],
   imports: [

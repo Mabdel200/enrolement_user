@@ -1,0 +1,103 @@
+<div class="row">
+  <!-- Card column -->
+  <div class="col-8">
+    <!--    Form to add new user-->
+    <mat-card >
+      <div class="success-message-panel" *ngIf="message">
+        <div class="success-icon">&#10004;</div>
+        <div class="success-message">{{message}}</div>
+      </div>
+
+      <mat-card-content>
+        <mat-card-title class="text-center">Enregistrer un paiement</mat-card-title>
+        <mat-card-subtitle class="text-center"> Formulaire d'enregistrement.</mat-card-subtitle>
+
+        <div class="col-12" >
+          <form (ngSubmit)="registerPayment()">
+
+            <mat-form-field appearance="fill">
+              <mat-label>De quel client s'agit-il ?</mat-label>
+              <mat-select
+                           name="customer"
+                           [(ngModel)]="paymentRequest.customer"
+                >
+                <mat-option *ngFor="let customer of customers" [value]="customer.id">{{customer.firstname}} - {{customer.email}} </mat-option>
+
+              </mat-select>
+            </mat-form-field>
+
+            <!-- <mat-form-field appearance="fill">
+              <mat-label>Qui fait l'enregistrement ?</mat-label>
+              <mat-select
+                name="customer"
+                [(ngModel)]="paymentRequest.user"
+              >
+                <mat-option *ngFor="let user of users" [value]="user.id">{{user.firstname}}  </mat-option>
+
+              </mat-select>
+            </mat-form-field> -->
+
+            <p>
+              <mat-form-field appearance="fill">
+                <mat-label>Montant</mat-label>
+                <input matInput placeholder="Write price"
+                       id="montant"
+                       name="montant"
+                       required
+                       [(ngModel)]="paymentRequest.montant"
+                >
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="fill">
+                <mat-label>Motif du paiement</mat-label>
+                <input matInput placeholder="Give short reason"
+                       id="motif"
+                       name="motif"
+                       required
+                       [(ngModel)]="paymentRequest.motif"
+                >
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              </mat-form-field>
+            </p>
+
+
+
+
+
+            <p class="text-center">
+              <button mat-fab extended>
+                <mat-icon>save</mat-icon>
+                Enregistrer
+              </button>
+            </p>
+          </form>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+
+
+    <mat-card style="color:white;">
+      <mat-card-content style="color:white;">
+        <mat-card-title>Customizing menu position </mat-card-title>
+        <mat-card-subtitle style="color:white;">By default, the menu will display below (y-axis), after (x-axis), without overlapping its trigger. The position can be changed using the xPosition (before | after) and yPosition (above | below) attributes. The menu can be forced to overlap the trigger using the overlapTrigger attribute.
+        </mat-card-subtitle>
+        <mat-menu style="color:white;" #appMenu="matMenu" yPosition="above">
+          <button mat-menu-item>Settings</button>
+          <button mat-menu-item>Help</button>
+        </mat-menu>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+  <div class="col-4">
+    <img src="assets/images/prod/cat.png" alt="order" class="img-fluid"  style="margin-top: 10rem !important;">
+  </div>
+</div>
+
+
+
+
+
